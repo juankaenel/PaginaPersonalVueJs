@@ -1,12 +1,16 @@
 $gris: #CED0CE;
+$black: #120c0c;
+$red_orange: #F15025;
 @font-face {
-    font-family: Lequire DEMO;
-    src: url('/src/assets/fonts/Lequire.otf');
+    @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+}
+body{
+    background-color: $black;
 }
 
 header {
-   @apply h-20 grid grid-cols-5 fixed w-full top-0 z-50;
-    background: $gris;
+@apply h-20 grid grid-cols-5 fixed w-full top-0 z-50 sticky;
+    background-color: $black;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.55);
     
     figure{
@@ -14,16 +18,61 @@ header {
         
         img {
             @apply inline-block max-w-none;
-            max-height: 5rem; 
+            max-height: 4.7rem; 
         }
         
         figcaption {
-            @apply inline-block;
+            @apply inline-block leading-7;
             
             span {
-                @apply block text-2xl;
-                font-family: Lequire DEMO;
+                @apply block text-xl;
+                color: $red_orange;
+                font-family: 'Black Ops One', cursive;
             }
+        }
+    }
+
+    /* Columna derecha, navegación */
+    nav{
+        @apply col-start-5 text-black relative flex items-center justify-center;
+        background-color: $red_orange;
+        /* Polígono */
+        &::before{
+            content: "";
+            @apply w-0 h-0 absolute top-0;
+            border-bottom: 5rem solid $black;
+            border-left: 2.5rem solid transparent;
+            left: -2.5rem;
+        }
+
+        button {
+            @apply w-full h-full text-2xl;
+
+            // Click menú desplegable
+            &:focus{
+                @apply outline-none;
+                color: $black;
+                font-family: 'Black Ops One', cursive;
+            }
+        }
+    }
+}
+
+.nav-content{
+    @apply fixed grid grid-flow-row gap-1 bg-white z-40 w-full left-0;
+    top:5rem;
+
+    button {
+        @apply h-20 text-black text-lg;
+        background-color: $red_orange;
+        font-family: 'Black Ops One', cursive;
+
+        // Click menú desplegable
+        &:focus{
+            @apply outline-none;
+            background-color: $black;
+            color: $red_orange;
+            font-family: 'Black Ops One', cursive;
         }
     }
 }

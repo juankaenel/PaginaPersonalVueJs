@@ -9,9 +9,17 @@
         </figcaption>
       </figure>
       <nav>
-
+        <button>
+          <!-- Botón hamburguesa, traído desde vue add fontawesome, despúes  configuro /plugins/fontawesome.js -->
+          <fa :icon="['fas', 'bars']"></fa>
+        </button>
       </nav>
     </header>
+    <section class="nav-content">
+        <button class="nav-content__button">Home</button>
+        <button class="nav-content__button">About</button>
+        <button class="nav-content__button">Contact</button>
+      </section>
   </div>
 </template>
 
